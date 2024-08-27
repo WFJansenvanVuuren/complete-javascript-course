@@ -103,21 +103,6 @@ const averageAge = (ageJonas + ageSarah) / 2;
 console.log(ageJonas,ageSarah, averageAge);
 
 
-//                      Challenge #1: (BMI Calculator)
-const massMark = 78;
-const heightMark = 1.69;
-
-const massJohn = 92;
-const heightJohn = 1.95;
-
-const BMIMark = massMark / heightMark ** 2;
-const BMIJohn = massJohn / (heightJohn * heightJohn);
-
-const markHigherBMI = BMIMark > BMIJohn;
-
-console.log(BMIMark, BMIJohn, markHigherBMI);
-
-
 //                  Strings and Template Literals:
 const firstName = 'Jonas';
 const job = 'teacher';
@@ -143,4 +128,35 @@ lines');
 console.log(`String with
 multiple
 lines`);
+
+
+//                  If/Else Statements
+const age = 15;
+
+if (age >= 18) {
+    console.log('Sarah can start driving license 🚗');
+} else {
+    const yearsLeft = 18 - age;
+    console.log(`Sarah has ${yearsLeft} years left before she can start driving license 😞`);
+}
+
+//Control Structure
+// if(bollean){
+//   true
+// } else {
+//   false
+// }
+
+const birthYear = 1998;
+
+let century;
+if (birthYear <= 2000) {
+    century = 20;    
+} else {
+    century = 21;
+}
+console.log(century);
 */
+
+//                  Type Conversion and Coercion
+
