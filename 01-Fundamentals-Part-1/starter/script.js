@@ -156,7 +156,62 @@ if (birthYear <= 2000) {
     century = 21;
 }
 console.log(century);
-*/
+
 
 //                  Type Conversion and Coercion
+// - Type conversion is when we manually convert from one type to another.
+// - Type coercion is when javascript automatically converts types behind the scenes for us.
+
+//                  Type Conversion
+const inputYear = '1991';
+console.log(Number(inputYear), inputYear);
+console.log(Number(inputYear) + 18);
+
+console.log(Number('Jonas')); // NaN (Not a number)
+console.log(typeof NaN); // is still a number but an invalid number
+
+console.log(String(23), 23);
+
+//We can convert to a number, string of boolean
+
+//                  Type Coercion
+console.log('I am ' + 23 + ' years old');// the + operator triggered coercion to strings, converts numbers to strings
+
+console.log('23' - '10' - 3); // the - operator triggers the opposite coversion
+console.log('23' + '10' + 3); // + operator will convert to  a string = 23103
+console.log('23' * '2');// * and / operators can only convert to numbers
+
+let n = '1' + 1;//coverts to string '11'
+n = n - 1;//converts to a number = 10
+console.log(n);
+
+*/
+
+//              Truthy and Falsy Values
+// Falsy values are values that become false when we try to convert them into a boolean.
+// There are 5 falsy values:
+// 0, '', undefined, null , NaN
+
+//Everything else is a truthy value
+
+console.log(Boolean(0)); //false
+console.log(Boolean(undefined)); //false
+console.log(Boolean('Jonas')); //true
+console.log(Boolean({})); //true
+console.log(Boolean(10)); //true
+console.log(Boolean('')); //false
+
+const money = 0;
+if (money) {
+    console.log("Don't spend it all!");
+} else{
+    console.log("Get a job!");
+}
+
+let height;
+if (height) {
+    console.log('Yay! Height is defined!');
+} else {
+    console.log('Height is undefined!');
+}
 
