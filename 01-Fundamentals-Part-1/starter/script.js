@@ -185,7 +185,7 @@ let n = '1' + 1;//coverts to string '11'
 n = n - 1;//converts to a number = 10
 console.log(n);
 
-*/
+
 
 //              Truthy and Falsy Values
 // Falsy values are values that become false when we try to convert them into a boolean.
@@ -214,4 +214,41 @@ if (height) {
 } else {
     console.log('Height is undefined!');
 }
+*/
 
+//              Equality Operators: == vs. ===
+
+// === Strict Equality Operator, only returns true if both values are exactly the same. Does not do type coercion.
+//'18' === 18 Returns False. The string is not equal to a number. 
+
+// ==  Loose Equality Operator, does do type coercion.
+//'18' == 18 // Returns True. The string will be converted to a number. 
+
+//As a general rule for clean code avoid the equality operator as much as possible.
+
+const age = 18; //if '18' only loose operator will return in console.
+if (age === 18) console.log('You just became an adult! (strict)');
+
+if (age == 18) console.log('You just became an adult! (loose)');
+
+//Getting a value from any web page.👇 Using the prompt function.
+// Prompt function will return a string.
+const favourite = Number(prompt("What's your favourite number?"));
+console.log(favourite);
+console.log(typeof favourite);
+
+if (favourite === 23) {
+    console.log('Cool! 23 is an amazing number!');
+} else if (favourite === 7) {
+    console.log('7 is also a cool number!');
+} else if (favourite === 13) {
+    console.log('13 is also a cool number!');
+} else {
+    console.log('Number is not 23 or 7 or 13!');
+}
+
+//              Operator for different
+// !== Strict version
+// !=  Loose version
+
+if (favourite !== 23) console.log('Why not 23?');
