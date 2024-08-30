@@ -12,11 +12,28 @@ const BMIJohn = massJohn / (heightJohn * heightJohn);
 
 // console.log(BMIMark, BMIJohn, markHigherBMI);
 
-//                      Challenge #2: (If,Else Statemesnt)
+//                      Challenge #2: (If,Else Statement)
 
 if (BMIJohn > BMIMark) {
     console.log(`John's BMI (${BMIJohn}) is higher than Mark's BMI (${BMIMark})!`)
 } else {
     console.log(`Mark's BMI (${BMIMark}) is higher than John's BMI (${BMIJohn})!`)
 }
-*/    
+  
+
+//                      Challenge #3: (Logical Operators)
+
+const scoreDolpins = (96 + 108 + 89) /3
+// console.log(scoreDolpins);
+
+const scoreKoalas = (88 + 91 + 110) /3
+// console.log(scoreKoalas);
+
+if (scoreDolpins > scoreKoalas) {
+    console.log("Dolphins win the trophy");
+} else if (scoreDolpins < scoreKoalas) {
+    console.log("Koalas win the trophy");
+} else if (scoreDolpins === scoreKoalas) {
+    console.log("Both win the trophy");
+}
+*/      
