@@ -19,21 +19,38 @@ if (BMIJohn > BMIMark) {
 } else {
     console.log(`Mark's BMI (${BMIMark}) is higher than John's BMI (${BMIJohn})!`)
 }
+    
   
 
 //                      Challenge #3: (Logical Operators)
 
-const scoreDolpins = (96 + 108 + 89) /3
-// console.log(scoreDolpins);
+const scoreDolpins = (97 + 112 + 101) / 3;
+const scoreKoalas = (109 + 95+ 106) / 3;
+// const minimumScore = 101;
+console.log(scoreDolpins, scoreKoalas);
 
-const scoreKoalas = (88 + 91 + 110) /3
-// console.log(scoreKoalas);
 
-if (scoreDolpins > scoreKoalas) {
-    console.log("Dolphins win the trophy");
-} else if (scoreDolpins < scoreKoalas) {
+//          My Way!!!
+// if (scoreDolpins === scoreKoalas && scoreDolpins >= minimumScore && scoreKoalas >= minimumScore) {
+//     console.log("Both win the trophy!");
+// }else if (scoreDolpins >= minimumScore && scoreKoalas) {
+//     console.log("Dolphins win the trophy!");
+// } else if (scoreKoalas >= minimumScore && scoreDolpins) {
+//     console.log("Koalas win the trophy");
+// } else {
+//     console.log("No one wins!");
+// }
+
+//          Course Way!!!
+
+
+if (scoreDolpins > scoreKoalas && scoreDolpins >= 100) {
+    console.log("Dolphins win the trophy!");
+} else if (scoreKoalas > scoreDolpins && scoreKoalas >= 100) {
     console.log("Koalas win the trophy");
-} else if (scoreDolpins === scoreKoalas) {
-    console.log("Both win the trophy");
+} else if(scoreDolpins === scoreKoalas && scoreDolpins >= 100 && scoreKoalas >= 100) {
+    console.log("Both win the trophy!");
+}else {
+    console.log("No one wins");
 }
-*/      
+*/  
