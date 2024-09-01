@@ -331,7 +331,7 @@ if (day === 'monday') {
 true && false && !false
 
 // a Statement is a bigger peice of code that is executed that does not produce a value of itself. Statement are like full sentences that translate our actions. The actions that we want the program to perform.
-  */
+  
 
 
 
@@ -353,7 +353,7 @@ console.log(drink2);
 
 console.log(`I like to drink ${age >= 18 ? 'wine🍷' : 'water💧'}`);
 
-
+*/
 
 
 

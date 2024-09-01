@@ -57,17 +57,13 @@ if (scoreDolpins > scoreKoalas && scoreDolpins >= 100) {
 
 //                      Challenge #4: (Conditional/Turnery Operator)
 
-const bill = 275;
-const x = 0.15 ? bill >= 50 && bill <= 300 : 0.20
+const bill = 430;
 
-
-
-
-// if (bill >= 50) {
+// if (bill >= 50 && bill <= 300) {
 //     tip = bill * 0.15     
 // } else {
 //     tip = bill * 0.20
 // }
 
+console.log(`The bill was ${bill}, the tip was ${tip = bill >= 50 && bill <= 300 ? 0.15 * bill : 0.20 * bill}, and the total value ${bill + tip}.`);
 
-// console.log(totalValue);
