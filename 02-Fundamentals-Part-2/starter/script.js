@@ -108,7 +108,7 @@ const yearsUntilRetirement = function (birthYear, firstName) {
 }
 console.log(yearsUntilRetirement(1991, 'Jonas'));
 console.log(yearsUntilRetirement(1950, 'Mike'));
-*/
+
 
 //                  Arrays:
 //Array is a data structure.
@@ -159,3 +159,42 @@ console.log(age1, age2, age3);
 
 const ages = [calcAge(years[0]), calcAge(years[1]), calcAge(years[years.length - 1])];
 console.log(ages);
+*/
+
+
+//                    Basic Array Operations (Methods):
+
+const friends = ['Michael','Steven','Peter'];
+
+//The .push() Method adds elements to the end of an Array.
+friends.push('Jay');
+console.log(friends);
+
+//The .unshift() Method adds elements to the beginning of an Array.
+friends.unshift('John');
+console.log(friends);
+
+//The .pop() Method removes elements to the end of an Array.
+friends.pop();
+console.log(friends);
+//To log the popped element👇 we create a variable for the popped element.
+const popped = friends.pop();
+console.log(popped);
+
+//The .shift() Method removes elements to the end of an Array.
+friends.shift();
+console.log(friends);
+
+//The .indexOf() Method shows us the position of an element in an Array.
+console.log(friends.indexOf('Steven'));
+//If an element is not in a Array it will retutn -1👇.
+console.log(friends.indexOf('Bob'));
+
+//The .includes() Method will return True or False if an element in an Array.
+console.log(friends.includes('Michael'));
+console.log(friends.includes('Bob'));
+
+//We can use the .includes() method to write conditionals
+if (friends.includes('Steven')) {
+  console.log('You have a friend called Steven.');
+}
