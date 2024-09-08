@@ -110,3 +110,52 @@ console.log(yearsUntilRetirement(1991, 'Jonas'));
 console.log(yearsUntilRetirement(1950, 'Mike'));
 */
 
+//                  Arrays:
+//Array is a data structure.
+//An array is like a big container in which we can throw variables and later reference them.
+//Any position of the arays simply needs to be an expression(Something that produces a value).
+
+const friend1 = 'Michael';
+const friend2 = 'Steven';
+const friend3 = 'Peter';
+
+//Literal Syntax👇
+const friends = ['Michael','Steven','Peter'];
+console.log(friends);
+
+// const years = new Array(1991, 1984, 2004, 2020);
+
+console.log(friends[0]);
+console.log(friends[2]);
+
+//Get the numbers of elements in the Array👇
+console.log(friends.length);
+console.log(friends[friends.length - 1]);
+
+//Mutating elements in an Array👇
+friends[2] = 'Jay'
+console.log(friends);
+//You cannot replace the entire Array eg.:
+//friend = ['Bob', 'Alice']
+
+const firstName = 'Jonas'
+const jonas = [firstName, 'Schmedt', 2037 - 1991, 'teacher', friends];
+
+console.log(jonas);
+
+
+//                    Array Exercise:
+
+const calcAge = function(birthYear) {
+  return 2037 - birthYear;
+}
+const years = [1991, 1967, 2002, 2010, 2018];
+
+const age1 = calcAge(years[0]);
+const age2 = calcAge(years[1]);
+const age3 = calcAge(years[years.length - 1]);
+console.log(age1, age2, age3);
+
+
+const ages = [calcAge(years[0]), calcAge(years[1]), calcAge(years[years.length - 1])];
+console.log(ages);
