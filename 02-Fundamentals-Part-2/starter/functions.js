@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 function sayHello() {
   console.log('Hello');
 }
@@ -22,4 +22,4 @@ function subtract(num1, num2) {
 const result = subtract(10, 2);
 
 console.log(result);
-
+*/

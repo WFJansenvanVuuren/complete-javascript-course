@@ -1,6 +1,6 @@
 'use strict';
-
 /*
+
 //                        Functions Declarations
 
 function logger() {
