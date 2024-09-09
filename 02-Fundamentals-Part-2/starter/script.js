@@ -159,7 +159,7 @@ console.log(age1, age2, age3);
 
 const ages = [calcAge(years[0]), calcAge(years[1]), calcAge(years[years.length - 1])];
 console.log(ages);
-*/
+
 
 
 //                    Basic Array Operations (Methods):
@@ -198,3 +198,41 @@ console.log(friends.includes('Bob'));
 if (friends.includes('Steven')) {
   console.log('You have a friend called Steven.');
 }
+*/
+
+//                    Objects:
+
+const jonas = {
+// Property: Value
+  firstName: 'Jonas', 
+  lastName: 'Schmedt',
+  age: 2037 - 1991,
+  job: 'teacher',
+  friends: ['Michael','Steven','Peter']
+}
+
+//Dot Notation:
+console.log(jonas.lastName);
+console.log(jonas.age);
+
+//Brackets Notation:
+console.log(jonas['lastName']);
+
+const nameKey = 'Name'
+console.log(jonas['first' + nameKey]);
+console.log(jonas['last' + nameKey]);
+
+const interestedIn = prompt('What do you want to know about Jonas? Choose between firstName, lastName, age and friends')
+
+if(jonas[interestedIn]) {
+  console.log(jonas[interestedIn]);
+} else {
+  console.log('Wrong request! What do you want to know about Jonas? Choose between firstName, lastName, age and friends');
+}
+
+//Adding to Objects:
+jonas.location = 'Portugal';
+jonas['email'] = 'email@test.com';
+console.log(jonas);
+
+
