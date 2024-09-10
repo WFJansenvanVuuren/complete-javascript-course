@@ -198,7 +198,7 @@ console.log(friends.includes('Bob'));
 if (friends.includes('Steven')) {
   console.log('You have a friend called Steven.');
 }
-*/
+
 
 //                    Objects:
 
@@ -234,5 +234,55 @@ if(jonas[interestedIn]) {
 jonas.location = 'Portugal';
 jonas['email'] = 'email@test.com';
 console.log(jonas);
+
+//Challenge
+
+console.log(`${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is ${jonas.friends[0]}.`);
+*/
+
+//                    Objects Methods:
+
+
+//Adding functions to Objects:
+const jonas = {
+  // Property: Value
+    firstName: 'Jonas',   //String value
+    lastName: 'Schmedt',  //String value
+    birthYear: 1991,      //Number value
+    job: 'teacher',
+    friends: ['Michael','Steven','Peter'], //Array value
+    hasDriversLicense: true, // Boolean value
+    
+    //Any function that is attached to an object is called a method.
+    // calcAge: function(birthYear) { //Function value
+    //   return 2037 - birthYear;
+    // }
+    
+    //.this keyword is equal to the object calling the method
+    // calcAge: function() { 
+    //   // console.log(this);
+    //   return 2037 - this.birthYear;
+    // }
+
+    //Creating a new property with a function method:
+    calcAge: function() { 
+      this.age = 2037 - this.birthYear;
+      return this.age;
+    },
+
+    //Challenge
+
+    getSummary: function() {
+    return `${this.firstName} is a ${this.calcAge()}-year old ${this.job}, and he has ${this.hasDriversLicense ? 'a' : 'no'} driver's license.`
+    }
+  }
+
+console.log(jonas.getSummary());  
+// console.log(jonas.age);  
+
+
+
+
+
 
 
