@@ -112,6 +112,7 @@ console.log(yearsUntilRetirement(1950, 'Mike'));
 
 //                  Arrays:
 //Array is a data structure.
+//Array is an Object.
 //An array is like a big container in which we can throw variables and later reference them.
 //Any position of the arays simply needs to be an expression(Something that produces a value).
 
@@ -202,6 +203,14 @@ if (friends.includes('Steven')) {
 
 //                    Objects:
 
+const jonasArray = [
+'Jonas',
+'Schmedt',
+2037 - 1991,
+'teacher'
+['Michael','Steven','Peter']
+];
+
 const jonas = {
 // Property: Value
   firstName: 'Jonas', 
@@ -209,7 +218,7 @@ const jonas = {
   age: 2037 - 1991,
   job: 'teacher',
   friends: ['Michael','Steven','Peter']
-}
+};
 
 //Dot Notation:
 console.log(jonas.lastName);
@@ -238,7 +247,6 @@ console.log(jonas);
 //Challenge
 
 console.log(`${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is ${jonas.friends[0]}.`);
-
 
 //                    Objects Methods:
 
@@ -281,8 +289,73 @@ console.log(jonas.getSummary());
 // console.log(jonas.age);  
 
 
+//                    Iteration: The for Loop:
 
+// for loop keeps running while the condition is TRUE.
+//Counter👇 Condition👇
+for (let rep = 1; rep <= 30; rep ++) { //rep++ is the same as rep = rep + 1
+  console.log(`Lifting weights repition ${rep} 🏋️‍♂️`);
+}  
+*/
 
+//                    Looping Arrays, Breaking and Continuing:
 
+const jonasArray = [
+  'Jonas',
+  'Schmedt',
+  2037 - 1991,
+  'teacher',
+  ['Michael','Steven','Peter'],
+  true,
+  'test'
+];
+
+for (let i = 0; i < jonasArray.length ;i++) {
+  //Reading from jonasArray👇
+  console.log(jonasArray[i], typeof jonasArray[i]);
+}  
+
+//Creating an Array with values of another Array:
+//Create an empty Array:
+const types = [];
+
+for (let i = 0; i < jonasArray.length ;i ++) {
+  //Filling a types array👇
+  // types[i] = typeof jonasArray[i];
+  //Another way to do this👇
+  types.push(typeof jonasArray[i])
+}  
+
+console.log(types);
+
+//Create an array with the calculating ages with a for loop:
+
+const years = [1991, 2007, 1969, 2020];
+const ages = [];
+
+for (let i = 0 ; i < years.length ; i ++){
+  ages.push(2037 - years[i])
+}
+
+console.log(ages);
+
+//continue and break Statements:
+
+//continue is to exit the current iteration of the loop and continue to the next one.
+//break is used the completely terminate the whole loop.
+
+console.log('---ONLY STRINGS---');
+for (let i = 0; i < jonasArray.length ;i++) {
+  if (typeof jonasArray[i] !== 'string') continue;
+
+  console.log(jonasArray[i], typeof jonasArray[i]);
+} 
+
+console.log('---BREAK WITH OBJECT---');
+for (let i = 0; i < jonasArray.length ;i++) {
+  if (typeof jonasArray[i] === 'object') break; //The Array is the Object
+
+  console.log(jonasArray[i], typeof jonasArray[i]);
+} 
 
 
