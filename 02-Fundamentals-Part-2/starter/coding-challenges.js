@@ -60,8 +60,71 @@ const totals = [(bills[0] + tips[0]), (bills[1] + tips[1]), (bills[2] + tips[2])
 
 console.log(bills, tips, totals);
 
+
+
+//                        Coding Challenge 3:  
+
+const mark = {
+  fullName: 'Mark Miller',
+  mass: 78,
+  height: 1.69,
+  calcBMI: function() {
+    this.bmi = this.mass / this.height ** 2;
+    return this.bmi;
+  }
+};
+
+const john = {
+  fullName: 'John Smith',
+  mass: 92,
+  height: 1.95,
+  calcBMI: function() {
+    this.bmi = this.mass / this.height ** 2;
+    return this.bmi;
+  }
+};
+
+john.calcBMI();
+mark.calcBMI();
+
+if (john.bmi > mark.bmi) {
+  console.log(`${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s (${mark.bmi}) BMI!`);
+} else {
+  console.log(`${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s (${john.bmi}) BMI!`);
+}
+
 */
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+// const massMark = 78;
+// const heightMark = 1.69;
+// const massJohn = 92;
+// const heightJohn = 1.95;
+
+// const BMIMark = massMark / heightMark ** 2;
+// const BMIJohn = massJohn / (heightJohn * heightJohn);
+// // const markHigherBMI = BMIMark > BMIJohn;
+
+// // console.log(BMIMark, BMIJohn, markHigherBMI);
+
+// //                      Challenge #2: (If,Else Statement)
+
+// if (BMIJohn > BMIMark) {
+//     console.log(`John's BMI (${BMIJohn}) is higher than Mark's BMI (${BMIMark})!`)
+// } else {
+//     console.log(`Mark's BMI (${BMIMark}) is higher than John's BMI (${BMIJohn})!`)
+// }
 
 
