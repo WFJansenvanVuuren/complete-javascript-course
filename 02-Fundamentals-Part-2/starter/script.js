@@ -292,11 +292,11 @@ console.log(jonas.getSummary());
 //                    Iteration: The for Loop:
 
 // for loop keeps running while the condition is TRUE.
-//Counter👇 Condition👇
+//Counter👇 Condition👇        👇Increase/Decrease Counter
 for (let rep = 1; rep <= 30; rep ++) { //rep++ is the same as rep = rep + 1
   console.log(`Lifting weights repition ${rep} 🏋️‍♂️`);
 }  
-*/
+
 
 //                    Looping Arrays, Breaking and Continuing:
 
@@ -359,3 +359,53 @@ for (let i = 0; i < jonasArray.length ;i++) {
 } 
 
 
+//                    Looping Backward and Loops in Loops:
+
+const jonasArray = [
+  'Jonas',
+  'Schmedt',
+  2037 - 1991,
+  'teacher',
+  ['Michael','Steven','Peter'],
+];
+
+// Looping Backwards:
+for (let i = jonasArray.length - 1; i >= 0; i--) {
+  console.log(i, jonasArray[i]);
+}
+
+//Loops inside Loops
+for (let exercise = 1; exercise < 4; exercise++) {
+  console.log(`-------- Starting exercise ${exercise}`);
+
+  for (let rep = 1; rep < 6; rep++) { 
+    console.log(`Excercise ${exercise}: Lifting weights repition ${rep} 🏋️‍♂️`);
+  }  
+}  
+*/
+
+//                    The while Loop:
+
+// The while loop is more versatile than the for loop and can be used in more situations
+
+//console.log('for Loop 👇');
+
+// for (let rep = 1; rep <= 10; rep ++) { 
+//   console.log(`Lifting weights repition ${rep} 🏋️‍♂️`);
+// }  
+
+// //console.log('while loop 👇');
+
+// let rep = 1; 
+// while (rep <= 10) {
+//   console.log(`Lifting weights repition ${rep} 🏋️‍♂️`);
+//   rep++
+// }
+
+let dice = Math.trunc(Math.random() * 6); + 1
+
+while (dice !== 6 ) {
+  console.log(`You rolled a ${dice}.`);
+  dice = Math.trunc(Math.random() * 6); + 1
+  if (dice === 6) console.log('Loop is about to end...');
+}  
