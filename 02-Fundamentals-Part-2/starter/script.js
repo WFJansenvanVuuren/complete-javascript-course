@@ -382,7 +382,7 @@ for (let exercise = 1; exercise < 4; exercise++) {
     console.log(`Excercise ${exercise}: Lifting weights repition ${rep} 🏋️‍♂️`);
   }  
 }  
-*/
+
 
 //                    The while Loop:
 
@@ -396,16 +396,17 @@ for (let exercise = 1; exercise < 4; exercise++) {
 
 // //console.log('while loop 👇');
 
-// let rep = 1; 
-// while (rep <= 10) {
-//   console.log(`Lifting weights repition ${rep} 🏋️‍♂️`);
-//   rep++
-// }
+let rep = 1; 
+while (rep <= 10) {
+  // console.log(`Lifting weights repition ${rep} 🏋️‍♂️`);
+  rep++
+}
 
-let dice = Math.trunc(Math.random() * 6); + 1
+let dice = Math.trunc(Math.random() * 6) + 1;
 
 while (dice !== 6 ) {
   console.log(`You rolled a ${dice}.`);
-  dice = Math.trunc(Math.random() * 6); + 1
+  dice = Math.trunc(Math.random() * 6) + 1;
   if (dice === 6) console.log('Loop is about to end...');
 }  
+*/  

@@ -95,6 +95,35 @@ if (john.bmi > mark.bmi) {
 
 */
 
+//                        Coding Challenge 4:
+
+const calcTip = function (bill) {
+  return bill >= 50 && bill <= 300 ? 0.15 * bill : 0.20 * bill;
+  }
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+
+const tips = [];
+const totals = [];
+  
+for (let i = 0; i < bills.length; i ++) { 
+  const tip = calcTip(bills[i]);
+  tips.push(tip);  
+  totals.push(tip + bills[i])
+} 
+
+console.log(bills, tips, totals);
+
+const calcAverage = function(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    // sum = sum + arr[i];
+    sum += arr[i];
+  }
+  return sum / arr.length
+}
+console.log(calcAverage(totals));
+console.log(calcAverage(tips));
 
 
 
@@ -102,29 +131,7 @@ if (john.bmi > mark.bmi) {
 
 
 
-
-
-
-
-
-
-// const massMark = 78;
-// const heightMark = 1.69;
-// const massJohn = 92;
-// const heightJohn = 1.95;
-
-// const BMIMark = massMark / heightMark ** 2;
-// const BMIJohn = massJohn / (heightJohn * heightJohn);
-// // const markHigherBMI = BMIMark > BMIJohn;
-
-// // console.log(BMIMark, BMIJohn, markHigherBMI);
-
-// //                      Challenge #2: (If,Else Statement)
-
-// if (BMIJohn > BMIMark) {
-//     console.log(`John's BMI (${BMIJohn}) is higher than Mark's BMI (${BMIMark})!`)
-// } else {
-//     console.log(`Mark's BMI (${BMIMark}) is higher than John's BMI (${BMIJohn})!`)
-// }
+// const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+// const totals = [(bills[0] + tips[0]), (bills[1] + tips[1]), (bills[2] + tips[2])]
 
 
