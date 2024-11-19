@@ -287,22 +287,41 @@ const books = [
 ///////////////////////////////////////////////////////////////////
 //The Rest Pattern and Parameters
 
-//4.1
-const [mainKeyWord, ...rest] = books[0].keywords;
-console.log(mainKeyWord);
-console.log(rest);
+// //4.1
+// const [mainKeyWord, ...rest] = books[0].keywords;
+// console.log(mainKeyWord);
+// console.log(rest);
 
-//4.2
-const { title, author, publisher: bookPublisher, ...restOfTheBook } = books[1];
-console.log(title);
-console.log(author);
-console.log(bookPublisher);
-console.log(restOfTheBook);
+// //4.2
+// const { title, author, publisher: bookPublisher, ...restOfTheBook } = books[1];
+// console.log(title);
+// console.log(author);
+// console.log(bookPublisher);
+// console.log(restOfTheBook);
 
-//4.3
+// //4.3
 
-const printBookAuthorsCount = function (title, ...authors) {
-  console.log(`The book ${title} has ${authors.length} authors`);
-};
+// const printBookAuthorsCount = function (title, ...authors) {
+//   console.log(`The book ${title} has ${authors.length} authors`);
+// };
 
-printBookAuthorsCount('Algorithms', 'Robert Sedgefield', 'Kevin Wayne');
+// printBookAuthorsCount('Algorithms', 'Robert Sedgefield', 'Kevin Wayne');
+
+///////////////////////////////////////////////////////////////////
+//Short Circuiting (&& and ||)
+
+//5.1
+
+// function hasExamplesInJava() {
+//   return books.programmingLanguage === 'Java' || 'no data available';
+// }
+
+// hasExamplesInJava(books[0]);
+
+// console.log(hasExamplesInJava());
+
+// //5.2
+// for (let i = 0; i < books.length; i++) {
+//   books[i].onlineContent &&
+//     console.log(`${books[i].title} provides online content`);
+// }
