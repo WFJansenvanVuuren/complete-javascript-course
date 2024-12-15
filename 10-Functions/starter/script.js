@@ -1,6 +1,168 @@
 'use strict';
 
 ///////////////////////////////////////////////
+//Closures
+/*
+- Closures are not features we explicitly use, we dont create closures manually like a new array or function.
+- Closures happen automatically in certain situations.
+- a Closure makes a function all the variables that existed at the functions birthplace.
+
+------------------------------------------------------------------------------------------
+
+- a Closure is the closed-over variable enviroment of the execution context in thich a function was created, even after that execution context is gone.
+  ⏬ Less Formal
+- a Closure gives a function access to all the variables of its parent function, even after the parent function has returned. The function keeps a reference to its outer scope, which preserves the scope chain throughout time.
+  ⏬ Less Formal
+- a Closure makes sure that a function doesn't loose connection to variables that existed at the fuctions birth place.
+  (Function🧍‍♂️)-(Connection⛓️)(Parent Scope🏠)-(Variables🔠=🔢)
+  ⏬ Less Formal
+- a Closure is like a backpack/bag that a function carries around whenever it goes. The backpack has all the variables that were present in the environment where the function was created
+  (Function🧍‍♂️)-(Closure🛍️)-(Variables🔠=🔢)
+
+
+
+
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passenger`);
+  };
+};
+
+const booker = secureBooking();
+booker();
+booker();
+booker();
+
+//Lets look at the internal property:
+console.dir(booker);
+
+//----------------------------------//
+
+//Example 1:
+let f;
+
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  };
+};
+
+g();
+f();
+console.dir(f);
+
+//f is a different function here because it was re-assigned to h.
+h();
+f();
+console.dir(f);
+
+//Example 2:
+const boardPassengers = function (n, wait) {
+  const perGroup = n / 3;
+
+  setTimeout(function () {
+    console.log(`We are now boarding all ${n} passengers`);
+    console.log(`There are three groups each with ${perGroup} passengers`);
+  }, wait * 1000); //I timer needs 2 paremeters, First a function and second the time, always in miliseconds.
+
+  console.log(`Will start boarding in ${wait} seconds`);
+};
+
+const perGroup = 1000;
+boardPassengers(180, 3);
+*/
+
+///////////////////////////////////////
+// Coding Challenge #2
+
+/* 
+This is more of a thinking challenge than a coding challenge 🤓
+
+Take the IIFE below and at the end of the function, attach an event listener that changes the color of the selected h1 element ('header') to blue, each time the BODY element is clicked. Do NOT select the h1 element again!
+
+And now explain to YOURSELF (or someone around you) WHY this worked! Take all the time you need. Think about WHEN exactly the callback function is executed, and what that means for the variables involved in this example.
+
+GOOD LUCK 😀
+
+
+(function () {
+  const header = document.querySelector('h1');
+  header.style.color = 'red';
+
+  // document.body.addEventListener('click', function () {
+  //   header.style.color = 'blue';
+  // });
+
+  document.querySelector('body').addEventListener('click', function () {
+    header.style.color = 'blue';
+  });
+})();
+*/
+/*
+Why does this work?
+
+    Variable Scope & Closure:
+        - The variable header is defined inside the IIFE, so it's local to the function. However, the event listener callback function, which is defined inside the IIFE, forms a closure.
+        - A closure means that the callback function has access to variables from its containing scope (in this case, the IIFE). So even though the callback function is executed later (when the body is clicked), it still has access to the header variable because of this closure.
+        - This is why you don’t need to select the h1 element again inside the event listener. The header variable remains accessible because it was created before the event listener was attached.
+
+    Execution Flow:
+        When the page loads, the IIFE runs, and it sets the header color to red immediately.
+        Then, the event listener is attached, but the callback function doesn’t run right away. It only runs when the user clicks the body of the page.
+        Once the body is clicked, the callback function executes, and inside it, it accesses the header variable (which is still pointing to the <h1> element) and changes its color to blue.
+
+Why does this solve the challenge?
+
+    - The challenge asks for the callback function to use the same header element and change its color to blue without needing to select the h1 element again inside the callback.
+    - The callback function is inside the IIFE, which allows it to have access to the header variable due to closures. The event listener itself is just a mechanism that waits for user interaction (clicks), and it will execute the callback when the event occurs. The important part is that the header element is already selected and stored in a variable before the event listener is set up.
+
+Final thoughts on the "why":
+
+    - When the IIFE runs, it sets up the necessary state (like selecting the header and setting its color to red).
+    - The event listener doesn't need to re-select the header because it's already available within the scope of the callback function, thanks to closure.
+    - The callback function reacts to the event (click on the body) and modifies the color of the header, using the header variable that was defined earlier in the function.
+
+It's a cool example of how closures allow us to retain access to variables even after the scope where they were defined has finished executing!
+*/
+
+/*
+///////////////////////////////////////////////
+//Immediately Invoked Function Expressions (IIFE)
+//We use this if we want to create a function that will execute immediately and only run once and never again.
+
+(function () {
+  console.log('This will never run again!');
+  const isPrivate = 23
+})();
+//We wrap the function in parenthesis to form an expression
+
+//The same would work for an arrow function:
+(() => console.log('This will ALSO never run again!'))();
+
+//This allows us to protect out data and variables from being overwritten and keep variables private and contained within the inner scopes and the global scope does not have access to this.
+//This means that this data is encapsulated.
+//isPrivate in encapsulated within the scope of that function which will only run once. Protecting the data from being accessed again.
+//It is important to hide variables and scopes are a good tool for doing this.
+
+//Variables declared with let or const create there own scopes inside a block, var would be accessable
+
+{
+  const isPrivate = 23
+}
+//For data privacy we would just create a block instead of a function
+*/
+///////////////////////////////////////////////
 //Coding Challenge #1
 
 /* 
@@ -33,7 +195,7 @@ BONUS TEST DATA 2: [1, 5, 3, 9, 6, 1]
 
 GOOD LUCK 😀
 */
-
+/*
 const poll = {
   question: 'What is your favourite programming language?',
   options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
@@ -45,30 +207,42 @@ const poll = {
         `${this.question}\n${this.options[0]}\n${this.options[1]}\n${this.options[2]}\n${this.options[3]}\n(Write option number)`
       )
     );
-    //   if (userInput === 0) {
-    //     this.answers[0] += 1;
-    //   } else if (userInput === 1) {
-    //     this.answers[1] += 1;
-    //   } else if (userInput === 2) {
-    //     this.answers[2] += 1;
-    //   } else if (userInput === 3) {
-    //     this.answers[3] += 1;
-    //   } else {
-    //     console.log('Incorrect input');
-    //   }
-
-    // Rather use the AND operator
+    // Rather use the AND operator instead of if statement - If it is truthy the evaluation continues and then the last value is returned.
     typeof userInput === 'number' &&
       userInput < this.answers.length &&
       this.answers[userInput]++;
 
-    console.log(this.answers);
+    this.displayResults();
+    this.displayResults('string');
+  },
+  displayResults(type = 'array') {
+    if (type === 'array') {
+      console.log(this.answers);
+    } else if (type === 'string') {
+      console.log(`Poll results are ${this.answers.join(', ')}`);
+    }
   },
 };
 
 document
   .querySelector('.poll')
   .addEventListener('click', poll.registerNewAnswer.bind(poll));
+
+//   if (userInput === 0) {
+//     this.answers[0] += 1;
+//   } else if (userInput === 1) {
+//     this.answers[1] += 1;
+//   } else if (userInput === 2) {
+//     this.answers[2] += 1;
+//   } else if (userInput === 3) {
+//     this.answers[3] += 1;
+//   } else {
+//     console.log('Incorrect input');
+//   }
+
+poll.displayResults.call({ answers: [5, 2, 3] }, 'string'); //we create a new object called answers
+poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }); //we create a new object called answers
+*/
 
 //Note: Your code seems correct overall, but there’s one potential issue that could be causing your array (poll.answers) not to update: the asynchronous nature of prompt and the console.log(poll.answers) placement.
 // Here's a breakdown of what's happening:
