@@ -187,6 +187,13 @@ btnTransfer.addEventListener('click', function (e) {
   }
 });
 
+//Close Account
+
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault();
+  // console.log('delete');//To test if the connection works
+});
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
