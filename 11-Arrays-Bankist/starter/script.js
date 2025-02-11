@@ -187,11 +187,44 @@ btnTransfer.addEventListener('click', function (e) {
   }
 });
 
+//Requesting a Loan
+
+btnLoan.addEventListener('click', function () {
+  e.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+  //or amount * 0.1
+  if (amount > 0 && currentAccount.movements.some(mov => mov >= amount / 10)) {
+    //Add movement
+    currentAccount.movements.push(amount);
+    //Apdate UI
+    updateUI(currentAccount);
+  }
+  //Clear input field
+  inputLoanAmount.value = '';
+});
+
 //Close Account
 
 btnClose.addEventListener('click', function (e) {
   e.preventDefault();
   // console.log('delete');//To test if the connection works
+
+  if (
+    inputCloseUsername.value === currentAccount.username &&
+    Number(inputClosePin.value) === currentAccount.pin
+  ) {
+    const index = accounts.findIndex(
+      acc => acc.username === currentAccount.username
+    );
+
+    accounts.splice(index, 1);
+
+    containerApp.style.opacity = 0;
+  }
+  inputCloseUsername.value = inputClosePin.value = '';
+
+  labelWelcome.textContent = 'Account Deleted';
 });
 
 /////////////////////////////////////////////////
@@ -623,7 +656,7 @@ calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
 */
 
 //////////////////////////////////////////////////
-//The find Methods:
+//The find Method:
 //We can use the find method to retreive one element of an array based on a condition.
 //Unlike the filter method, find method will not return an array but only the first element in the array that meets this condition. The first element in the array for which the operation is true.
 /* 
@@ -641,3 +674,46 @@ const account = accounts.find(acc => acc.owner === 'Jessica Davis');
 console.log(account);
 //Use this metod using the for of loop:
 */
+/* 
+//////////////////////////////////////////////////
+//The findLast and findLastIndex Methods:
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+console.log(movements);
+
+const lastWithdrawals = movements.findLast(mov => mov < 0);
+console.log(lastWithdrawals);
+
+const latestLargeMovementIndex = movements.findLastIndex(
+  mov => Math.abs(mov) > 2000
+);
+console.log(latestLargeMovementIndex);
+console.log(
+  `Your latest large movement was ${
+    movements.length - latestLargeMovementIndex
+  } movements ago`
+);
+*/
+
+//////////////////////////////////////////////////
+//The some & every Methods:
+
+//
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+console.log(movements);
+
+//Checks for Equality .Returns a boolean
+console.log(movements.includes(-130)); //Test if it includes a certain value.
+
+//The some Methods:
+
+//Checks for a Condition .Returns a boolean
+console.log(movements.some(mov => mov === -130)); //Here we would rather use includes method.
+
+const anyDesposits = movements.some(mov => mov > 1500); //Returns a boolean
+console.log(anyDesposits);
+
+//The every Methods:
