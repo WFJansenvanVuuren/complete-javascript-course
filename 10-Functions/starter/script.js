@@ -139,6 +139,7 @@ It's a cool example of how closures allow us to retain access to variables even 
 /*
 ///////////////////////////////////////////////
 //Immediately Invoked Function Expressions (IIFE)
+
 //We use this if we want to create a function that will execute immediately and only run once and never again.
 
 (function () {
@@ -251,7 +252,6 @@ poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }); //we create a new obj
 
 // The issue: The line console.log(poll.answers) runs immediately after the event listener is set, before any user interaction takes place. Therefore, it logs the initial state of poll.answers, which is [0, 0, 0, 0].
 
-/*
 ///////////////////////////////////////////////
 //The Call and Apply Method
 
@@ -369,10 +369,11 @@ const addTaxRate2 = function (rate) {
 
 const addVat2 = addTaxRate2(0.23);
 console.log(addVat2(100));
-*/
+
 /*
 ///////////////////////////////////////////////
 //Functions Returning Functions
+
 //Returning functions will become useful when using functional programming.
 
 const greet = function (greeting) {
@@ -396,6 +397,7 @@ greet2('Hi')('Jonas');
 /*
 ///////////////////////////////////////////////
 //Functions Accepting Callback Functions
+
 //Calback functions allows us to split up our code into more reuseable and interconnected parts.
 //Callback functions allow us to create abstractions: This means we hide the detail of some code implenentation because we do not care about all that detail. We hide certain details so that the code is cleaner and easier to understand.(OOP)
 
@@ -429,8 +431,8 @@ document.body.addEventListener('click', high5);
 ['Jonas', 'Martha', 'Adam'].forEach(high5);
 */
 ///////////////////////////////////////////////
-
 //First Class and Higher-Order Functions
+
 //Javascript treats functions as first-class citizens
 //This means that functions are treated as values
 //Funtions are just another 'type' of object
@@ -441,7 +443,6 @@ document.body.addEventListener('click', high5);
 
 //First-Class functions means all functions are values.
 //Higher-Order functions are possible because the language supports First-Class functions
-
 /*
 ///////////////////////////////////////////////
 //How Passing Arguments Work: Value & Reference
@@ -454,7 +455,7 @@ const jonas = {
 
 const checkIn = function (flightNum, passenger) {
   flightNum = 'LH999'; //This is a completely different variable so it will not change the 'flight' variable. It won't change because it is a primitive.
-  passenger.name = 'Mr.' + passenger.name; //When we pass a refernce type to a function, what is copied is the reference to the object in the memory heap, but they both point to the same object.
+  passenger.name = 'Mr.' + passenger.name; //When we pass a reference type to a function, what is copied is the reference to the object in the memory heap, but they both point to the same object.
 
   if (passenger.passport === 214687224) {
     alert('Checked in');
@@ -495,7 +496,7 @@ const createBooking = function (
   numPassengers = 1,
   price = 199 * numPassengers
 ) {
-  //ES5 Way
+  //Old ES5 Way
   //   numPassengers = numPassengers || 1;
   //   price = price || 199;
 
@@ -507,7 +508,7 @@ const createBooking = function (
   console.log(booking);
   bookings.push(booking);
 };
-
+console.log(bookings);
 createBooking('LH123');
 createBooking('LH123', 2, 800);
 createBooking('LH123', 2);

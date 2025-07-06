@@ -17,7 +17,7 @@ Suppose we get data from a web service about a certain game (below). In this cha
 TEST DATA FOR 6: Use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Then, call the function again with players from game.scored
 
 GOOD LUCK 😀
-*/
+
 const game = {
   team1: 'Bayern Munich',
   team2: 'Borrussia Dortmund',
@@ -58,7 +58,7 @@ const game = {
     team2: 6.5,
   },
 };
-/*
+
 //////////////////////////////////////////
 // Coding Challenge #1
 
@@ -195,7 +195,7 @@ for (const player of game.scored) {
 //       [FIRST HALF] 17: ⚽️ GOAL
 
 // GOOD LUCK 😀
-*/
+
 const gameEvents = new Map([
   [17, '⚽️ GOAL'],
   [36, '🔁 Substitution'],
@@ -209,7 +209,7 @@ const gameEvents = new Map([
   [80, '⚽️ GOAL'],
   [92, '🔶 Yellow card'],
 ]);
-/*
+
 //1.
 const events = [...new Set(gameEvents.values())];
 console.log(events);
@@ -243,11 +243,11 @@ for (const [key, value] of gameEvents) {
   const half = key <= 45 ? 'FIRST' : 'SECOND';
   console.log(`[${half} HALF] ${key}: ${value}`);
 }
-*/
+
 ///////////////////////////////////////
 // Coding Challenge #4
 
-/* 
+
 Write a program that receives a list of variable names written in underscore_case and convert them to camelCase.
 
 The input will come from a textarea inserted into the DOM (see code below), and conversion will happen when the button is pressed.
@@ -274,7 +274,7 @@ HINT 4: This challenge is difficult on purpose, so start watching the solution i
 Afterwards, test with your own test data!
 
 GOOD LUCK 😀
-*/
+
 // document.body.append(document.createElement('textarea'));
 // document.body.append(document.createElement('button'));
 
@@ -291,3 +291,4 @@ GOOD LUCK 😀
 //     console.log(output.padEnd(20));
 //   }
 // });
+*/
