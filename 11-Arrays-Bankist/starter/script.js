@@ -65,10 +65,12 @@ const inputClosePin = document.querySelector('.form__input--pin');
 //Creating DOM Elements
 
 //It is good practice to instead of working with global variables, to start passing the data that the function need into that function.
-const displayMovements = function (movements) {
+const displayMovements = function (movements,sort = false) {
   containerMovements.innerHTML = ''; //removed default movements
 
-  movements.forEach(function (mov, i) {
+  const movs = sort ? movements.slice().sort((a,b) => a - b) : movements
+ 
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     const html = `
@@ -228,6 +230,17 @@ btnClose.addEventListener('click', function (e) {
 
   labelWelcome.textContent = 'Account Deleted';
 });
+
+//Sort Movements(sortMethod)
+let sorted = false
+
+btnSort.addEventListener('click', function(e){
+  e.preventDefault()
+  // console.log('sort');
+  displayMovements(currentAccount.movements, !sorted)// we do the opposite of sorted.
+  sorted = !sorted
+})
+
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -968,6 +981,44 @@ console.log(breeds.every(dog => dog.averageWeight >= 10))
 
 console.log(breeds.some(dog => dog.activities.length >= 3))
 */
-
+/*
 //////////////////////////////////////////////////
-//The flat & flatMap Methods:
+//Sorting Arrays
+
+
+//Strings
+const owners = ['Jonas', 'Zach', 'Adam', 'Martha']
+//Sorts alphabetically
+//It mutates 
+
+//Sorts alphabetically
+console.log(owners.sort());
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+console.log(movements)
+console.log(movements.sort());//This does not work because it reads strings
+
+
+//We do a comparison
+// return < 0, A, B (keep order)
+// return > 0, B, A (switch order)
+
+//Ascending
+// movements.sort((a,b) => {
+//   if (a > b) return 1
+//   if (b > a) return -1
+// })
+
+movements.sort((a, b) => a - b); 
+
+//Descending
+// movements.sort((a,b) => {
+//   if (a > b) return -1
+//   if (b > a) return 1
+// })
+
+movements.sort((a, b) => b - a); // descending
+
+console.log(movements); 
+*/
