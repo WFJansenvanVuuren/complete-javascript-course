@@ -135,7 +135,6 @@ Final thoughts on the "why":
 
 It's a cool example of how closures allow us to retain access to variables even after the scope where they were defined has finished executing!
 */
-
 /*
 ///////////////////////////////////////////////
 //Immediately Invoked Function Expressions (IIFE)
@@ -251,7 +250,7 @@ poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }); //we create a new obj
 // Prompt and user input: The registerNewAnswer method prompts the user to select an option, and updates the corresponding answer count based on the user’s input.
 
 // The issue: The line console.log(poll.answers) runs immediately after the event listener is set, before any user interaction takes place. Therefore, it logs the initial state of poll.answers, which is [0, 0, 0, 0].
-
+/*
 ///////////////////////////////////////////////
 //The Call and Apply Method
 
@@ -320,7 +319,7 @@ const bookEW23 = book.bind(eurowings, 23);
 bookEW23('Jonas Schmedt');
 bookEW23('Martha Cooper');
 
-//We can also use this method where we use objects together with event listeners:
+//We can also use this method where we use objects together with Event Listeners:
 lufthansa.planes = 300;
 lufthansa.buyPlane = function () {
   console.log(this);
@@ -369,7 +368,7 @@ const addTaxRate2 = function (rate) {
 
 const addVat2 = addTaxRate2(0.23);
 console.log(addVat2(100));
-
+*/
 /*
 ///////////////////////////////////////////////
 //Functions Returning Functions
@@ -514,4 +513,40 @@ createBooking('LH123', 2, 800);
 createBooking('LH123', 2);
 createBooking('LH123', 5);
 createBooking('LH123', undefined, 1000);
+*/
+
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX//
+
+///////////////////////////////////////////////
+//Coding Challenge #1
+
+/* 
+Let's build a simple poll app!
+
+A poll has a question, an array of options from which people can choose, and an array with the number of replies for each option. This data is stored in the starter object below.
+
+Here are your tasks:
+
+1. Create a method called 'registerNewAnswer' on the 'poll' object. The method does 2 things:
+  1.1. Display a prompt window for the user to input the number of the selected option. The prompt should look like this:
+        What is your favourite programming language?
+        0: JavaScript
+        1: Python
+        2: Rust
+        3: C++
+        (Write option number)
+  
+  1.2. Based on the input number, update the answers array. For example, if the option is 3, increase the value AT POSITION 3 of the array by 1. Make sure to check if the input is a number and if the number makes sense (e.g answer 52 wouldn't make sense, right?)
+2. Call this method whenever the user clicks the "Answer poll" button.
+3. Create a method 'displayResults' which displays the poll results. The method takes a string as an input (called 'type'), which can be either 'string' or 'array'. If type is 'array', simply display the results array as it is, using console.log(). This should be the default option. If type is 'string', display a string like "Poll results are 13, 2, 4, 1". 
+4. Run the 'displayResults' method at the end of each 'registerNewAnswer' method call.
+
+HINT: Use many of the tools you learned about in this and the last section 😉
+
+BONUS: Use the 'displayResults' method to display the 2 arrays in the test data. Use both the 'array' and the 'string' option. Do NOT put the arrays in the poll object! So what shoud the this keyword look like in this situation?
+
+BONUS TEST DATA 1: [5, 2, 3]
+BONUS TEST DATA 2: [1, 5, 3, 9, 6, 1]
+
+GOOD LUCK 😀
 */

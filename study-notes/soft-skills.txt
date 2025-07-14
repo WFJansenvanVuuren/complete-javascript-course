@@ -1,0 +1,67 @@
+Testing: Unit & integration tests with Jest, Cypress, Playwright.
+
+Mobile: Learn React Native or Expo for mobile apps.
+
+Performance: Core Web Vitals, lazy loading, caching.
+
+AI integrations: Use LLM APIs in real products.Product thinking:
+
+- Can you understand what the user really needs?
+- Can you translate fuzzy requirements into clear, testable features?
+
+Architecture & design:
+
+- How will this scale?
+- Is it maintainable?
+- Where are the bottlenecks?
+- AI can suggest patterns — but you decide what fits best.
+
+Communication & collaboration:
+
+- Explaining tech to non-tech people.
+- Working with designers, PMs, clients.
+- Writing clear docs, tickets, and proposals.
+- Giving good code reviews.
+
+Creativity & problem solving:
+
+- Connecting ideas AI can’t see.
+- Solving weird bugs, edge cases, messy legacy code.
+- Designing delightful UX.
+
+Responsible AI use:
+
+- Knowing when to use AI — and when not to.
+- Checking AI-generated code for bugs, bias, security risks.
+- Prompt engineering is now a legit skill!
+- Master prompt engineering
+
+Learn to leverage AI — smartly:
+- Master prompt engineering
+- Use tools like GitHub Copilot or ChatGPT to boost productivity — but always review AI code
+- Automate repetitive tasks: scaffolding, config, tests
+
+Develop “human” power skills:
+- Product thinking: Why does this feature exist? How does it deliver value?
+- System design: Basic architecture — how services talk, how data flows, how to scale.
+- UX & empathy: Build what users love, not just what you can code.
+- Communication: Write clear PRs, docs, and explain complex ideas to non-devs.
+
+Be cloud & deployment fluent:
+- Basics of Docker, containers, CI/CD pipelines
+- Hosting & scaling on Vercel, Netlify, or AWS
+- Monitor & debug production apps
+
+Stay security-conscious:
+- Best practices for auth, HTTPS, data validation
+- Common vulnerabilities (OWASP basics)
+- Secure APIs & user data
+
+Optional but valuable:
+
+- Testing: Unit & integration tests with Jest, Cypress, Playwright.
+- Mobile: Learn React Native or Expo for mobile apps.
+- Performance: Core Web Vitals, lazy loading, caching.
+- AI integrations: Use LLM APIs in real products.
+
+
