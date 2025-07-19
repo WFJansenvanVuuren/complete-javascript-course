@@ -10,6 +10,7 @@ const account1 = {
   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
   interestRate: 1.2, // %
   pin: 1111,
+  type: 'premium',
 };
 
 const account2 = {
@@ -17,6 +18,7 @@ const account2 = {
   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
   interestRate: 1.5,
   pin: 2222,
+  type: 'standard',
 };
 
 const account3 = {
@@ -24,6 +26,7 @@ const account3 = {
   movements: [200, -200, 340, -300, -20, 50, 400, -460],
   interestRate: 0.7,
   pin: 3333,
+  type: 'premium',
 };
 
 const account4 = {
@@ -31,6 +34,7 @@ const account4 = {
   movements: [430, 1000, 700, 50, 90],
   interestRate: 1,
   pin: 4444,
+  type: 'basic',
 };
 
 const accounts = [account1, account2, account3, account4];
@@ -65,17 +69,19 @@ const inputClosePin = document.querySelector('.form__input--pin');
 //Creating DOM Elements
 
 //It is good practice to instead of working with global variables, to start passing the data that the function need into that function.
-const displayMovements = function (movements,sort = false) {
+const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = ''; //removed default movements
 
-  const movs = sort ? movements.slice().sort((a,b) => a - b) : movements
- 
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
   movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     const html = `
       <div class="movements__row">
-        <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
+        <div class="movements__type movements__type--${type}">${
+      i + 1
+    } ${type}</div>
         <div class="movements__value">${mov}€</div>
       </div>
     `;
@@ -183,7 +189,8 @@ btnTransfer.addEventListener('click', function (e) {
     receiverAcc &&
     currentAccount.balance >= amount &&
     receiverAcc?.username !== currentAccount.username
-  ) {//Doing the transfer
+  ) {
+    //Doing the transfer
     currentAccount.movements.push(-amount);
     receiverAcc.movements.push(amount);
 
@@ -232,15 +239,14 @@ btnClose.addEventListener('click', function (e) {
 });
 
 //Sort Movements(sortMethod)
-let sorted = false
+let sorted = false;
 
-btnSort.addEventListener('click', function(e){
-  e.preventDefault()
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
   // console.log('sort');
-  displayMovements(currentAccount.movements, !sorted)// we do the opposite of sorted.
-  sorted = !sorted
-})
-
+  displayMovements(currentAccount.movements, !sorted); // we do the opposite of sorted.
+  sorted = !sorted;
+});
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -785,8 +791,6 @@ const overallBalance3 = accounts
 console.log(overallBalance3);
 */
 
-
-
 ///////////////////////////////////////
 // Coding Challenge #1
 
@@ -1018,7 +1022,108 @@ movements.sort((a, b) => a - b);
 //   if (b > a) return 1
 // })
 
-movements.sort((a, b) => b - a); // descending
+movements.sort((a, b) => b - a); 
 
 console.log(movements); 
 */
+/*
+//////////////////////////////////////////////////
+//Array Grouping
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+console.log(movements);
+
+const groupedMovements = Object.groupBy(movements, movement =>
+  movement > 0 ? 'deposits' : 'withdrawls'
+); //Receives 2 arguments(array,function )
+
+console.log(groupedMovements);
+
+const groupByActivity = Object.groupBy(accounts, account => {
+  const movementCount = account.movements.length;
+
+  if (movementCount >= 8) return 'very active';
+  if (movementCount >= 4) return 'active';
+  if (movementCount >= 1) return 'moderate';
+  return 'inactive';
+});
+
+console.log(groupByActivity);
+
+//Grouping accounts by types:
+
+// const groupAccounts = Object.groupBy(accounts, account => account.type);
+// console.log(groupAccounts);
+
+const groupAccounts = Object.groupBy(accounts, ({ type }) => type);
+console.log(groupAccounts);
+
+//Creating and  filling arrays:(Fill Method)
+
+const arr = [1, 2, 3, 4, 5, 6, 7];
+console.log(new Array(1, 2, 3, 4, 5, 6, 7));
+
+//Empty arrays & Fill Method
+const x = new Array(7);
+console.log(x);
+
+// x.fill(1);
+x.fill(1, 3, 5);
+console.log(x);
+
+arr.fill(23, 2, 6);
+console.log(arr);
+
+//Array.from
+
+const y = Array.from({ length: 7 }, () => 1); //Cleaner to do it like this.
+console.log(y);
+
+const z = Array.from({ length: 7 }, (_, i) => i + 1);
+console.log(z);
+
+// const zz = Array.from(
+//   { length: 100 },
+//   (_, i) => (i = Math.floor(Math.random(1, 6)))
+// );
+// console.log(zz);
+
+labelBalance.addEventListener('click', function () {
+  const movementsUI = Array.from(
+    document.querySelectorAll('.movements__value'),
+    el => Number(el.textContent.replace('€', ''))
+  );
+
+  console.log(movementsUI);
+});
+*/
+//////////////////////////////////////////////////
+//Non-Destructive alternatives:
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+console.log(movements);
+
+//toReversed(reverse)
+//Most of the time we do not want to mutate the array, so we use the slice method to preserve the original array.
+const reversedMov = movements.slice().reverse();
+console.log(reversedMov);
+console.log(movements);
+
+//Or we can use toReversed
+const reversedMov2 = movements.toReversed();
+console.log(reversedMov2);
+console.log(movements);
+
+//toSorted(sort), toSpliced(splice)
+
+//Here we mutate the array:
+// movements[1] = 2000;
+// console.log(movements);
+
+//If we dont we to mutate:
+
+//with()
+
+const newMovements = movements.with(1, 2000);
+console.log(newMovements);
