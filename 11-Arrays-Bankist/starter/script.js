@@ -1127,3 +1127,125 @@ console.log(movements);
 
 const newMovements = movements.with(1, 2000);
 console.log(newMovements);
+
+//////////////////////////////////////////////////
+// Summary: Which array method to use.
+
+// What do I want from this method?
+
+//------------------------------------------------
+// To mutate orginal:
+
+// Add to original:
+//.push(end)
+//.unshift(start)
+
+// Remove from original:
+//.pop(end)
+//.shift(start)
+//.splice(any)
+
+// Others:
+//.reverse()
+//.sort()
+//.fill()
+
+//------------------------------------------------
+// A new array based on original:
+
+//Same length as original:
+//.map(loop)
+
+//Filter using condition:
+//.filter()
+
+//Taking portion of original:
+//.slice()
+
+//With one item replaced:
+//.with()
+
+//Flattened:
+//.flat()
+//.flatMap()
+
+//Reversed:
+//toReversed()
+
+//Sorted:
+//toSorted()
+
+//With deleted items:
+//toSpliced()
+
+//Joining two arrays:
+//.concat()
+
+//------------------------------------------------
+// An array index
+
+//Based on value:
+// .indexOf()
+
+//Based on test condition:
+// .findIndex(), .findLastIndex()
+
+//------------------------------------------------
+// An array element
+
+//Based on test condition:
+//.find(), .findLast()
+//.at()
+
+//------------------------------------------------
+// Know if array inclused
+
+//Based on value:
+// .include()
+
+//Based on test condition:
+// .some(), .every()
+
+//------------------------------------------------
+// A new string
+
+//Based on seperator:
+//.join()
+
+//------------------------------------------------
+// To transform a value
+
+//Based on accumulator:
+//.reduce()
+//Boil down array to single value of any type: number, string, boolean, or even new array or object
+
+//------------------------------------------------
+// To just loop array
+
+//Based on callback:
+//.forEach()
+//Does not create a new array, it just loops over it.
+
+//////////////////////////////////////////////////
+//More array tools and techniques:
+
+//Grouping an array by categories:
+//Object.groupBy
+
+//Creating a new array from scratch:(Prefered method)
+//Array.from
+
+//Creating a new array from scratch with empty positions (use together with .fill method)
+//new Array(n)
+
+//Joining 2 or more arrays:
+//[...arr1, ...arr2]
+
+//Creating a new array constaining unique values from arr
+//[...new Set(arr)]
+
+//Creating a new array containing unique elements that are present in both arr1 and arr2
+// [...new Set(arr1).intersection(new Set(arr2)]
+
+//////////////////////////////////////////////////
+// Array Methods Practice
