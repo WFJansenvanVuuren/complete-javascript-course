@@ -81,19 +81,28 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // Functions
 
-const displayMovements = function (movements, sort = false) {
+const displayMovements = function (acc, sort = false) {
   containerMovements.innerHTML = '';
 
-  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+  const movs = sort
+    ? acc.movements.slice().sort((a, b) => a - b)
+    : acc.movements;
 
   movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
+
+    const date = new Date(acc.movementsDates[i]);
+    const day = `${date.getDate()}`.padStart(2, 0);
+    const month = `${date.getMonth() + 1}`.padStart(2, 0);
+    const year = date.getFullYear();
+    const displayDate = `${day}/${month}/${year}`;
 
     const html = `
       <div class="movements__row">
         <div class="movements__type movements__type--${type}">${
       i + 1
     } ${type}</div>
+        <div class="movements__date">${displayDate}</div>
         <div class="movements__value">${mov.toFixed(2)}€</div>
       </div>
     `;
@@ -142,7 +151,7 @@ createUsernames(accounts);
 
 const updateUI = function (acc) {
   // Display movements
-  displayMovements(acc.movements);
+  displayMovements(acc);
 
   // Display balance
   calcDisplayBalance(acc);
@@ -154,6 +163,22 @@ const updateUI = function (acc) {
 ///////////////////////////////////////
 // Event handlers
 let currentAccount;
+
+//FAKE ALWAYS LOGGED IN
+currentAccount = account1;
+updateUI(currentAccount);
+containerApp.style.opacity = 100;
+
+//Implementing Dates
+const now = new Date();
+const day = `${now.getDate()}`.padStart(2, 0);
+const month = `${now.getMonth() + 1}`.padStart(2, 0);
+const year = now.getFullYear();
+const hour = `${now.getHours() + 1}`.padStart(2, 0);
+const minutes = `${now.getMinutes() + 1}`.padStart(2, 0);
+labelDate.textContent = `${day}/${month}/${year}, ${hour}:${minutes}`;
+
+//Date/month/year
 
 btnLogin.addEventListener('click', function (e) {
   // Prevent form from submitting
@@ -198,6 +223,10 @@ btnTransfer.addEventListener('click', function (e) {
     currentAccount.movements.push(-amount);
     receiverAcc.movements.push(amount);
 
+    //Add transfer date
+    currentAccount.movementsDates.push(new Date().toDateString());
+    receiverAcc.movementsDates.push(new Date().toDateString());
+
     // Update UI
     updateUI(currentAccount);
   }
@@ -211,6 +240,8 @@ btnLoan.addEventListener('click', function (e) {
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
     // Add movement
     currentAccount.movements.push(amount);
+    // Add loan date
+    currentAccount.movementsDates.push(new Date().toDateString());
 
     // Update UI
     updateUI(currentAccount);
@@ -281,7 +312,7 @@ console.log(Number.isFinite('20'));
 console.log(Number.isFinite('20X'));
 console.log(Number.isFinite(23 / 0));
 */
-
+/*
 /////////////////////////////////////////////////
 // MATH AND ROUNDING
 
@@ -328,3 +359,146 @@ console.log(+(23.3).toFixed());
 console.log(+(-23.3).toFixed());
 console.log(+(23.8).toFixed());
 console.log(+(-23.8).toFixed());
+*/
+/*
+/////////////////////////////////////////////////
+// THE REMAINDER OPERATOR
+
+console.log(5 / 2);
+console.log(5 % 2);
+// 5/2 = 2.5 rouned to 2
+// 5 - (2 * 2) = 1(Remainder)
+// 5 = 2 * 2 + 1
+
+console.log(8 / 3);
+console.log(8 % 3);
+
+console.log(10 / 3);
+console.log(10 % 3);
+
+//Check if a number is even or not
+const isEven = n => n % 2 === 0;
+console.log(isEven(8));
+console.log(isEven(23));
+console.log(isEven(514));
+
+labelBalance.addEventListener('click', function () {
+  document.querySelectorAll('.movements__row').forEach(function (row, i) {
+    if (i % 2 === 0) row.style.backgroundColor = 'lightgrey';
+    // if (i % 3 === 0) row.style.backgroundColor = 'lightblue';
+  });
+});
+*/
+/*
+/////////////////////////////////////////////////
+// NUMERIC SEPARATORS
+
+// 287,460,000,000
+const diameter = 287_460_000_000;
+console.log(diameter);
+
+const price = 349_99;
+console.log(price);
+
+const transferFee1 = 15_00;
+const transferFee2 = 1_500;
+console.log(transferFee1, transferFee2);
+
+const PI = 3.1415;
+console.log(PI);
+*/
+/*
+/////////////////////////////////////////////////
+// WORKING WITH BIGINT
+//Math operators do not work with BigInt
+
+console.log(2 ** 53 - 1); //biggest number JS can safely represent
+console.log(Number.MAX_SAFE_INTEGER);
+
+console.log(4834949837498374932847564785638240294);
+console.log(4834949837498374932847564785638240294n);
+console.log(BigInt(9834949837423));
+
+//Operations
+
+console.log(100034434325234532450n * 90432543534626565463645192n);
+
+const huge = 7362432748374938274n;
+const num = 23;
+console.log(huge * BigInt(num));
+
+//Excepetions
+console.log(20n > 15);
+console.log(20n === 20);
+console.log(20n == 20);
+console.log(20n == '20');
+
+console.log(huge + ' is really big');
+
+//Divisions
+
+console.log(10n / 3n); //removes decimals
+console.log(10 / 3);
+*/
+/*
+/////////////////////////////////////////////////
+// Create Dates
+
+// Create a date
+
+// const now = new Date();
+// console.log(now);
+
+// console.log(new Date('Sun Jul 20 2025 21:44:59'));
+// console.log(new Date('December 24, 2015'));
+
+// console.log(account1);
+// console.log(new Date(account1.movementsDates[0]));
+
+// console.log(new Date(2037, 10, 19, 15, 23, 5));
+// console.log(new Date(2037, 10, 31));
+
+// console.log(new Date(0)); //Initial unix time
+// console.log(new Date(3 * 24 * 60 * 60 * 1000));
+
+//Working with Dates
+const future = new Date(2037, 10, 19, 15, 23, 5);
+console.log(future);
+console.log(future.getFullYear());
+console.log(future.getMonth());
+console.log(future.getDate());
+console.log(future.getHours());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+console.log(future.toISOString());
+
+console.log(future.getTime());
+console.log(new Date(2142249785000));
+
+console.log(Date.now());
+console.log(new Date(1753208347505));
+
+future.setFullYear(2040);
+console.log(future);
+*/
+
+/////////////////////////////////////////////////
+//Operations with dates:
+
+const future = new Date(2037, 10, 19, 15, 23, 5);
+
+//convert a date to milliseconds
+console.log(Number(future));
+console.log(+future);
+
+//Subtract a date from a date
+
+const daysPassed = (date1, date2) =>
+  Math.abs(date2 - date1) / (1000 * 60 * 60 * 24);
+
+const days1 = daysPassed(new Date(2037, 3, 14), new Date(2037, 3, 24));
+
+console.log(days1);
+
+/////////////////////////////////////////////////
+//Internationalizing Dates(INTL):
